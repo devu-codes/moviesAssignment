@@ -1,0 +1,126 @@
+login: http://127.0.0.1:8000/api/auth/token/login 
+    payload:
+            {
+                "email":"test@gmail.om",
+                "password":"test"
+            }
+
+
+register: http://127.0.0.1:8000/api/users/
+    payload:
+            {
+            "first_name": "", #optional
+            "last_name": "", #optional
+            "email": "",
+            "password": ""
+        }
+
+
+list: http://127.0.0.1:8000/api/collections/
+    response:
+    {
+        "is_success": true,
+        "data": {
+            "collections": [
+                {
+                    "uuid": "b64b63be-ea16-4394-b898-83e0354d462b",
+                    "title": "fas",
+                    "description": "fJust a descripton"
+                }
+            ],
+            "favourite_genres": null
+        }
+        }
+
+
+post: http://127.0.0.1:8000/api/collections/
+    payload:
+        {
+                "title": "second",
+                "description": "fJust a descripton",
+                "movies": [
+                {
+                        "title": "Siglo ng Pagluluwal",
+                         "genre": "Drama,Action,Romance,Horror",
+                        "description": "An artist struggles to finish his work while a storyline about a cult plays in his head.",
+                        "uuid": "e9548ee7-6a95-4917-893e-1fa1d3a6de40"
+                    },
+                    {
+                    "title": "Caged Heat 3000",
+                    "genre": "Drama,Action,Romance,Horror",
+                    "description": "It's the year 3000 AD. The world's most dangerous women are banished to a remote asteroid 45 million light years from earth. Kira Murphy doesn't belong; wrongfully accused of a crime she did not commit, she's thrown in this interplanetary prison and left to her own defenses. But Kira's a fighter, and soon she finds herself in the middle of a female gang war; where everyone wants a piece of the action... and a piece of her! \"Caged Heat 3000\" takes the Women-in-Prison genre to a whole new level... and a whole new galaxy!",
+                    "uuid": "129cf5d9-827c-4e42-843e-1f87ef99452f"
+                }
+                ]
+        }
+    response:
+        {
+            "collection_uuid": "35f568d8-5a09-4161-be39-2712df6a12cf"
+        }
+
+retrieve: http://127.0.0.1:8000/api/collections/b64b63be-ea16-4394-b898-83e0354d462b
+    response:
+        {
+            "uuid": "b64b63be-ea16-4394-b898-83e0354d462b",
+            "title": "fas",
+            "description": "fJust a descripton",
+            "movies": [
+                {
+                    "uuid": "e9548ee7-6a95-4917-893e-1fa1d3a6de40",
+                    "title": "Siglo ng Pagluluwal",
+                     "genre": "Drama,Action,Romance,Horror",
+                    "description": "An asfdsaf struggles to finish his work while a storyline about a cult plays in his head."
+                },
+                {
+                    "uuid": "e9548ee7-fasd-4917-893e-1fa1d3a6de40",
+                    "title": "fdsafsa ng Pagluluwal",
+                     "genre": "Drama,Action,Romance,Horror",
+                    "description": "An asfdsaf struggles to finish his work while a storyline about a cult plays in his head."
+                },
+                {
+                    "uuid": "sadf-827c-4e42-843e-1f87ef99452f",
+                    "title": "Caged Heat 3000",
+                     "genre": "Drama,Action,Romance,Horror",
+                    "description": "It's the year 3000 AD. The world's most dangerous women are banished to a remote asteroid 45 million light years from earth. Kira Murphy doesn't belong; wrongfully accused of a crime she did not commit, she's thrown in this interplanetary prison and left to her own defenses. But Kira's a fighter, and soon she finds herself in the middle of a female gang war; where everyone wants a piece of the action... and a piece of her! \"Caged Heat 3000\" takes the Women-in-Prison genre to a whole new level... and a whole new galaxy!"
+                }
+            ]
+        }
+
+
+update: http://127.0.0.1:8000/api/collections/b64b63be-ea16-4394-b898-83e0354d462b
+    response:
+        {
+            "uuid": "b64b63be-ea16-4394-b898-83e0354d462b",
+            "title": "fas",
+            "description": "fJust a descripton",
+            "movies": [
+                {
+                    "uuid": "e9548ee7-6a95-4917-893e-1fa1d3a6de40",
+                    "title": "Siglo ng Pagluluwal",
+                    "description": "An asfdsaf struggles to finish his work while a storyline about a cult plays in his head."
+                },
+                {
+                    "uuid": "e9548ee7-fasd-4917-893e-1fa1d3a6de40",
+                    "title": "fdsafsa ng Pagluluwal",
+                    "description": "An asfdsaf struggles to finish his work while a storyline about a cult plays in his head."
+                },
+                {
+                    "uuid": "sadf-827c-4e42-843e-1f87ef99452f",
+                    "title": "Caged Heat 3000",
+                    "description": "It's the year 3000 AD. The world's most dangerous women are banished to a remote asteroid 45 million light years from earth. Kira Murphy doesn't belong; wrongfully accused of a crime she did not commit, she's thrown in this interplanetary prison and left to her own defenses. But Kira's a fighter, and soon she finds herself in the middle of a female gang war; where everyone wants a piece of the action... and a piece of her! \"Caged Heat 3000\" takes the Women-in-Prison genre to a whole new level... and a whole new galaxy!"
+                }
+            ]
+        }
+
+
+GET API requests: http://127.0.0.1:8000/api/request-count/
+    response:
+        {
+            "requests": 200
+        }
+
+GET Reset count: http://127.0.0.1:8000/api/request-count/reset/
+    respone:
+        {
+                "message": "Request count reset successfully"
+            }
